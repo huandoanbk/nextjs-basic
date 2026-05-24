@@ -26,13 +26,24 @@ export default function HomePage() {
       >
         <Navigation />
         <h1 className={styles.heading}>Welcome to My Next.js Learning Journey 🚀</h1>
-        <Image
-          src="/next.svg"
-          alt="Next.js logo"
-          width={120}
-          height={24}
-          priority
-        />
+        <div
+          style={{
+            display: "inline-block",
+            backgroundColor: "#ffffff",
+            border: "1px solid #cbd5e1",
+            borderRadius: "8px",
+            padding: "8px 12px",
+            marginBottom: "12px",
+          }}
+        >
+          <Image
+            src="/nextjs.png"
+            alt="Next.js image"
+            width={96}
+            height={96}
+            priority
+          />
+        </div>
         <p className={styles.paragraph}>
           This app is a simple project built with Next.js App Router.
           It demonstrates routing, navigation, and how to build modern
