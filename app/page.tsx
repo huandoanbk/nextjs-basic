@@ -1,65 +1,61 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Navigation from "./components/Navigation";
+import AppLayout from "../components/AppLayout";
+import Alert from "../components/Alert";
+import Button from "../components/Button";
+import Card from "../components/Card";
+import ProfileCard from "../components/ProfileCard";
+import { useTheme } from "../components/ThemeContext";
+import styles from "./home/home.module.css";
+
+export default function HomePage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <AppLayout>
+      <main
+        style={{
+          backgroundColor: isDark ? "#0f172a" : "#f8fafc",
+          color: isDark ? "#e2e8f0" : "#0f172a",
+          padding: "1rem",
+          borderRadius: "0.75rem",
+        }}
+      >
+        <Navigation />
+        <h1 className={styles.heading}>Welcome to My Next.js Learning Journey 🚀</h1>
+        <p className={styles.paragraph}>
+          This app is a simple project built with Next.js App Router.
+          It demonstrates routing, navigation, and how to build modern
+          React-based web applications step by step.
+        </p>
+        <Button>Read More</Button>
+        <Alert message="Tailwind is active. This alert is styled only with utility classes." />
+        <Card backgroundColor="#dbeafe" title="Blue Card">
+          This card uses a light blue background from props.
+        </Card>
+        <Card backgroundColor="#dcfce7" title="Green Card">
+          This card uses a light green background from props.
+        </Card>
+        <Card backgroundColor="#fef3c7" title="Yellow Card">
+          This card uses a light yellow background from props.
+        </Card>
+        <ProfileCard
+          name="Alex Johnson"
+          role="Frontend Developer"
+          bio="Focused on building accessible UI components and scalable design systems."
+          accentColor="#2563eb"
+          availability="Open to collaboration"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <ProfileCard
+          name="Maya Chen"
+          role="Product Designer"
+          bio="Designs thoughtful user experiences with attention to typography and motion."
+          accentColor="#16a34a"
+          availability="In a design sprint"
+        />
       </main>
-    </div>
+    </AppLayout>
   );
 }
