@@ -1,6 +1,6 @@
 "use client";
 
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
 import AppLayout from "../../components/AppLayout";
 import ContactForm from "../../components/ContactForm";
 import { useTheme } from "../../components/ThemeContext";

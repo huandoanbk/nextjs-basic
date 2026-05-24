@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Basic reset */
+:root {
+  --page-bg: #f8fafc;
+  --text-color: #0f172a;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="dark"] {
+  --page-bg: #0b1220;
+  --text-color: #e2e8f0;
+  --card-bg: #111827;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,10 +32,11 @@ body {
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: var(--page-bg);
+  color: var(--text-color);
   line-height: 1.6;
   padding: 1.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {

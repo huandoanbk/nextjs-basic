@@ -1,6 +1,7 @@
 "use client";
 
-import Navigation from "./components/Navigation";
+import Image from "next/image";
+import Navigation from "../components/Navigation";
 import AppLayout from "../components/AppLayout";
 import Alert from "../components/Alert";
 import Button from "../components/Button";
@@ -25,6 +26,13 @@ export default function HomePage() {
       >
         <Navigation />
         <h1 className={styles.heading}>Welcome to My Next.js Learning Journey 🚀</h1>
+        <Image
+          src="/next.svg"
+          alt="Next.js logo"
+          width={120}
+          height={24}
+          priority
+        />
         <p className={styles.paragraph}>
           This app is a simple project built with Next.js App Router.
           It demonstrates routing, navigation, and how to build modern

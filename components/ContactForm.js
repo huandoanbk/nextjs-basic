@@ -20,7 +20,6 @@ export default function ContactForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer demo-token",
         },
         body: JSON.stringify({ name, message }),
       });

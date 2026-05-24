@@ -1,12 +1,4 @@
 export async function POST(request) {
-  const authHeader = request.headers.get("authorization");
-  if (!authHeader) {
-    return Response.json(
-      { error: "Unauthorized. Missing authorization header." },
-      { status: 401 }
-    );
-  }
-
   const { name, message } = await request.json();
 
   if (

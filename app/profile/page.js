@@ -1,7 +1,5 @@
 export default async function ProfilePage() {
-  console.log("Rendering profile on server");
-
-  const response = await fetch("https://jsonplaceholder.typicode.com/users/1", {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users/1", {
     cache: "no-store",
   });
 

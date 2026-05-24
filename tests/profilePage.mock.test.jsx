@@ -1,6 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import ProfilePage from "../app/profile/page";
 
+const originalFetch = global.fetch;
+
+afterEach(() => {
+  global.fetch = originalFetch;
+  jest.clearAllMocks();
+});
+
 describe("ProfilePage with mocked fetch", () => {
   test("renders mocked user name without calling real API", async () => {
     global.fetch = jest.fn().mockResolvedValue({
